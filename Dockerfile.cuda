@@ -1,12 +1,6 @@
-FROM --platform=$TARGETPLATFORM nvidia/cuda:12.1.1-devel-ubuntu22.04
-LABEL maintainer="Martin Chan @osiutino"
+FROM --platform=$TARGETPLATFORM nvidia/cuda:11.8.0-devel-ubuntu22.04
 
 ARG BRANCH_OR_TAG=master
-ARG BUILD_DATE
-ARG BUILD_VERSION
-
-LABEL org.label-schema.build-date=$BUILD_DATE
-LABEL org.label-schema.version="${BRANCH_OR_TAG}_${BUILD_VERSION}"
 
 RUN apt update && apt install -y --no-install-recommends \
         bash ca-certificates wget git gcc sudo libgl1 libglib2.0-dev python3-dev google-perftools \
